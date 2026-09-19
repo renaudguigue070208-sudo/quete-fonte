@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quête de la Fonte</title>
+    <style>
+        :root {
+            --bg-color: #f7f7fb;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --card-bg: #ffffff;
+            --accent-purple: #e0d4fc;
+            --accent-purple-dark: #a154f2;
+            --accent-blue: #007aff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .app-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding: 20px 15px 40px 15px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0 0 20px 0;
+            line-height: 1.4;
+        }
+
+        /* Dashboard Card */
+        .dashboard {
+            background: linear-gradient(135deg, #ff7e5f, #a154f2);
+            border-radius: 16px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(161, 84, 242, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .dashboard-header .subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .dashboard-header .xp {
+            font-size: 12px;
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background-color: white;
+            width: 5%;
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Legend */
+        .legend {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dot-leg {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
+        .dot-leg.done { background-color: var(--accent-purple-dark); }
+        .dot-leg.todo { background-color: #e5e5ea; }
+
+        /* Blocks */
+        .block-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .block-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.2s;
+            touch-action: manipulation;
+        }
+
+        .block-header:active {
+            background-color: #f9f9f9;
+        }
+
+        .block-title h3 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        .block-title p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .block-icon {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .block-content {
+            display: none;
+            padding: 0 16px 16px 16px;
+            border-top: 2px solid var(--accent-purple);
+        }
+
+        .block-card.active .block-content {
+            display: block;
+        }
+
+        .block-card.active .block-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Workouts */
+        .workout-group {
+            background-color: #fbfbfe;
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 15px;
+            border: 1px solid #f0f0f5;
+        }
+
+        .workout-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exercise {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f5;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            touch-action: manipulation;
+        }
+        .exercise:last-child {
+            border-bottom: none;
+        }
+        
+        .exercise.done-ex {
+            opacity: 0.3;
+            text-decoration: line-through;
+        }
+
+        .ex-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .ex-reps {
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+        }
+
+        /* Cardio Notes */
+        .cardio-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 15px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.4;
+        }
+
+        /* Weeks Tracker */
+        .weeks-tracker {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .week-btn {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #e5e5ea;
+            border-radius: 12px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .week-btn div:first-child {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        
+        .week-btn.deload div:first-child {
+            color: var(--accent-blue);
+        }
+
+        .week-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .w-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #e5e5ea;
+            border-radius: 50%;
+            cursor: pointer;
+            touch-action: manipulation;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        
+        .w-dot:active {
+            transform: scale(0.8);
+        }
+        
+        .w-dot.done { 
+            background-color: var(--accent-purple-dark); 
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    
+    <header>
+        <h1>🏋️ Quête de la Fonte</h1>
+        <p>14 sept. 2026 → 1er août 2027 · 3 séances/semaine ·<br>47 ans, ancien sportif de haut niveau qui reprend le combat</p>
+    </header>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <div>
+                <h2>Niveau 1</h2>
+                <div class="subtitle">Novice de la Fonte</div>
+            </div>
+            <div class="xp">
+                0 XP<br>prochain niveau : 100 XP
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="stats">
+            <div class="stat-badge">🔥 Streak: 0 sem.</div>
+            <div class="stat-badge">✅ Séances: 0/138</div>
+            <div class="stat-badge">🏅 Blocs terminés: 0/12</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-row">
+            <span><span class="dot-leg done"></span>séance validée</span>
+            <span><span class="dot-leg todo"></span>à faire</span>
+        </div>
+        <div>🌀 semaine deload = charge -15 à -25%, RPE 6, aucun échec</div>
+    </div>
+
+    <div class="blocks-container">
+        
+        <!-- BLOC 1 -->
+        <div class="block-card active">
+            <div class="block-header" onclick="toggleBlock(this)">
+                <div class="block-title">
+                    <h3>Bloc 1 · Reprise / Base</h3>
+                    <p>Semaines 1-4 · 14/09 → 12/10</p>
+                </div>
+                <div class="block-icon">🎯 ▾</div>
+            </div>
+            
+            <div class="block-content">
+                <!-- Séance A -->
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🦵 Back squat</span><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé couché</span><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Rowing barre</span><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">⚡ RDL</span><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔩 Ab wheel</span><span class="ex-reps">3×8-12</span></div>
+                </div>
+
+                <!-- Séance B -->
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé militaire</span><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Tractions / tirage</span><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🍑 Fente bulgare</span><span class="ex-reps">3×8-10/j</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🍑 Hip thrust</span><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🎒 Farmer walk</span><span class="ex-reps">3×30-40m</span></div>
+                </div>
+
+                <!-- Séance C -->
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🦵 Front squat</span><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé incliné haltères</span><span class="ex-reps">3×8-12</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔥 Hang power clean</span><span class="ex-reps">5×3</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Rowing unilatéral</span><span class="ex-reps">3×10/c</span></div>
+                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔩 Gainage latéral</span><span class="ex-reps">3×40-60s/c</span></div>
+                </div>
+
+                <div class="cardio-note">
+                    🏃‍♂️ Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j
+                </div>
+
+                <!-- Semaines - Points cliquables -->
+                <div class="weeks-tracker">
+                    <div class="week-btn">
+                        <div>14/09</div>S1
+                        <div class="week-dots">
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                        </div>
+                    </div>
+                    <div class="week-btn">
+                        <div>21/09</div>S2
+                        <div class="week-dots">
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                        </div>
+                    </div>
+                    <div class="week-btn">
+                        <div>28/09</div>S3
+                        <div class="week-dots">
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                        </div>
+                    </div>
+                    <div class="week-btn deload">
+                        <div>05/10</div>S4 🌀
+                        <div class="week-dots">
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                            <div class="w-dot" onclick="toggleDot(this)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 2 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(this)">
+                <div class="block-title">
+                    <h3>Bloc 2 · Hypertrophie</h3>
+                    <p>Semaines 5-8 · 12/10 → 09/11</p>
+                </div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <p style="font-size:13px; color:#666; text-align:center; padding: 20px 0;">(Contenu à ajouter ici)</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    // Ouvrir/fermer les blocs complets
+    function toggleBlock(headerElement) {
+        const card = headerElement.parentElement;
+        const icon = headerElement.querySelector('.block-icon');
+        
+        if (card.classList.contains('active')) {
+            card.classList.remove('active');
+            icon.innerHTML = '🎯 ▸';
+        } else {
+            card.classList.add('active');
+            icon.innerHTML = '🎯 ▾';
+        }
+    }
+
+    // Cocher une séance (les petits ronds)
+    function toggleDot(dotElement) {
+        // Alterne l'état validé / non validé
+        dotElement.classList.toggle('done');
+
+        // Met à jour la bordure de la semaine si les 3 séances sont finies
+        const weekBtn = dotElement.closest('.week-btn');
+        const allDots = weekBtn.querySelectorAll('.w-dot');
+        const allDone = Array.from(allDots).every(d => d.classList.contains('done'));
+
+        if (allDone) {
+            weekBtn.style.borderColor = "var(--accent-purple-dark)";
+            weekBtn.style.boxShadow = "0 0 0 2px var(--accent-purple)";
+        } else {
+            weekBtn.style.borderColor = "#e5e5ea";
+            weekBtn.style.boxShadow = "none";
+        }
+    }
+
+    // Barrer un exercice fini pendant l'entraînement
+    function toggleExercise(exElement) {
+        exElement.classList.toggle('done-ex');
+    }
+</script>
+
+</body>
+</html>
