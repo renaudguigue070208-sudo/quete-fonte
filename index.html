@@ -12,7 +12,6 @@
             --card-bg: #ffffff;
             --accent-purple: #e0d4fc;
             --accent-purple-dark: #a154f2;
-            --accent-blue: #007aff;
             --accent-green: #34c759;
         }
 
@@ -35,7 +34,7 @@
         }
 
         header h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin: 0 0 5px 0;
             display: flex;
             align-items: center;
@@ -43,17 +42,17 @@
         }
 
         header p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
             margin: 0 0 15px 0;
             line-height: 1.4;
         }
 
-        /* Barre d'outils haut (Chrono & Poids) */
+        /* Barre d'outils haut */
         .top-tools {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .tool-btn {
@@ -68,7 +67,6 @@
             color: var(--text-main);
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            transition: all 0.2s;
         }
 
         .tool-btn:active {
@@ -80,130 +78,80 @@
         .dashboard {
             background: linear-gradient(135deg, #ff7e5f, #a154f2);
             border-radius: 16px;
-            padding: 20px;
+            padding: 15px 20px;
             color: white;
             box-shadow: 0 4px 15px rgba(161, 84, 242, 0.2);
             margin-bottom: 20px;
-        }
-
-        .dashboard-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 15px;
+            align-items: center;
         }
 
-        .dashboard-header h2 {
-            margin: 0;
-            font-size: 20px;
+        .dashboard h2 {
+            margin: 0 0 4px 0;
+            font-size: 18px;
         }
 
-        .dashboard-header .subtitle {
+        .dashboard .subtitle {
             font-size: 12px;
             opacity: 0.9;
         }
 
-        .dashboard-header .tonnage-box {
-            font-size: 14px;
+        .tonnage-box {
+            font-size: 13px;
             font-weight: bold;
             text-align: right;
             background: rgba(255,255,255,0.2);
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: 10px;
         }
 
-        .stats {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .stat-badge {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        /* Blocks */
-        .block-card {
+        /* Carte de la séance active (Mode Focus) */
+        .session-card {
             background-color: var(--card-bg);
             border-radius: 16px;
-            margin-bottom: 15px;
+            padding: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            overflow: hidden;
+            margin-bottom: 20px;
+            border-top: 4px solid var(--accent-purple-dark);
         }
 
-        .block-header {
-            padding: 16px;
+        .session-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            touch-action: manipulation;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f5;
+            padding-bottom: 10px;
         }
 
-        .block-header:active {
-            background-color: #f9f9f9;
-        }
-
-        .block-title h3 {
-            margin: 0 0 4px 0;
-            font-size: 16px;
-            color: var(--text-main);
-        }
-
-        .block-title p {
+        .session-title h3 {
             margin: 0;
+            font-size: 16px;
+            color: var(--accent-purple-dark);
+        }
+
+        .session-title p {
+            margin: 2px 0 0 0;
             font-size: 12px;
             color: var(--text-muted);
         }
 
-        .block-icon {
-            font-size: 18px;
-            transition: transform 0.3s;
-        }
-
-        .block-content {
-            display: none;
-            padding: 0 16px 16px 16px;
-            border-top: 2px solid var(--accent-purple);
-        }
-
-        .block-card.active .block-content {
-            display: block;
-        }
-
-        .block-card.active .block-icon {
-            transform: rotate(90deg);
-        }
-
-        /* Workouts */
-        .workout-group {
-            background-color: #fbfbfe;
-            border-radius: 12px;
-            padding: 12px;
-            margin-top: 15px;
-            border: 1px solid #f0f0f5;
-        }
-
-        .workout-title {
-            font-size: 14px;
+        .session-progress {
+            font-size: 12px;
             font-weight: 600;
-            margin: 0 0 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            background: #f0f0f5;
+            padding: 4px 8px;
+            border-radius: 8px;
         }
 
+        /* Exercices */
         .exercise {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f0f0f5;
         }
         .exercise:last-child {
@@ -219,7 +167,7 @@
         }
 
         .ex-name {
-            font-weight: 500;
+            font-weight: 600;
             color: #333;
         }
 
@@ -227,7 +175,7 @@
             font-size: 11px;
             color: var(--text-muted);
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
 
         .prev-weight {
@@ -235,7 +183,6 @@
             font-weight: 600;
         }
 
-        /* Inputs de Poids et Reps */
         .input-group {
             display: flex;
             align-items: center;
@@ -244,8 +191,8 @@
 
         .weight-input {
             width: 55px;
-            padding: 6px;
-            font-size: 13px;
+            padding: 8px;
+            font-size: 14px;
             border: 1px solid #c7c7cc;
             border-radius: 8px;
             text-align: center;
@@ -263,69 +210,33 @@
             color: var(--text-muted);
         }
 
-        /* Effet validé (grisé / barré léger) */
-        .exercise.done-ex .ex-name {
-            opacity: 0.5;
-            text-decoration: line-through;
-        }
-        .exercise.done-ex .weight-input {
-            background-color: #e8f8ed;
-            border-color: var(--accent-green);
-            color: #1b5e20;
-            font-weight: bold;
-        }
-
-        /* Cardio Notes */
         .cardio-note {
             font-size: 12px;
             color: var(--text-muted);
             margin: 15px 0;
             line-height: 1.4;
+            background: #fbfbfe;
+            padding: 10px;
+            border-radius: 8px;
         }
 
-        /* Weeks Tracker */
-        .weeks-tracker {
-            display: flex;
-            justify-content: space-between;
-            gap: 6px;
-            margin-top: 15px;
-        }
-
-        .week-btn {
-            flex: 1;
-            background-color: white;
-            border: 1px solid #e5e5ea;
-            border-radius: 12px;
-            padding: 8px 0;
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .week-btn div:first-child {
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
-
-        .week-dots {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 6px;
-        }
-
-        .w-dot {
-            width: 14px;
-            height: 14px;
-            background-color: #e5e5ea;
-            border-radius: 50%;
+        /* Bouton principal de validation */
+        .action-btn {
+            width: 100%;
+            background: var(--accent-purple-dark);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: bold;
             cursor: pointer;
-            touch-action: manipulation;
+            box-shadow: 0 4px 12px rgba(161, 84, 242, 0.3);
+            transition: transform 0.1s;
         }
-        
-        .w-dot.done { 
-            background-color: var(--accent-purple-dark); 
+
+        .action-btn:active {
+            transform: scale(0.98);
         }
 
         /* Modal Chrono */
@@ -369,204 +280,18 @@
     </div>
 
     <div class="dashboard">
-        <div class="dashboard-header">
-            <div>
-                <h2>Objectif 85 kg</h2>
-                <div class="subtitle">Départ : 100 kg · Actuel : 100 kg</div>
-            </div>
-            <div class="tonnage-box" id="total-tonnage">
-                0 kg<br><span style="font-size:10px; opacity:0.8;">Tonnage total</span>
-            </div>
+        <div>
+            <h2>Objectif 85 kg</h2>
+            <div class="subtitle">Départ : 100 kg · Actuel : 100 kg</div>
         </div>
-        <div class="stats">
-            <div class="stat-badge" id="stat-sessions">✅ Séances validées : 0/138</div>
+        <div class="tonnage-box" id="total-tonnage">
+            0 kg<br><span style="font-size:10px; opacity:0.8;">Tonnage total</span>
         </div>
     </div>
 
-    <!-- BLOC 1 -->
-    <div class="blocks-container">
-        <div class="block-card active">
-            <div class="block-header" onclick="toggleBlock(event, this)">
-                <div class="block-title">
-                    <h3>Bloc 1 · Reprise / Base</h3>
-                    <p>Semaines 1-4 · 14/09 → 12/10</p>
-                </div>
-                <div class="block-icon">🎯 ▾</div>
-            </div>
-            <div class="block-content">
-                <div class="workout-group">
-                    <div class="workout-title">🗓️ Séance 1</div>
-                    <div class="exercise" data-id="b1-s1-ex1">
-                        <div class="exercise-info">
-                            <span class="ex-name">🦵 Back squat</span>
-                            <div class="ex-meta"><span>Cible : 4×8-10</span><span class="prev-weight" id="prev-b1-s1-ex1">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s1-ex1-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s1-ex2">
-                        <div class="exercise-info">
-                            <span class="ex-name">💪 Développé couché</span>
-                            <div class="ex-meta"><span>Cible : 4×8-10</span><span class="prev-weight" id="prev-b1-s1-ex2">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s1-ex2-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s1-ex3">
-                        <div class="exercise-info">
-                            <span class="ex-name">🛶 Rowing barre</span>
-                            <div class="ex-meta"><span>Cible : 3×10-12</span><span class="prev-weight" id="prev-b1-s1-ex3">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s1-ex3-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s1-ex4">
-                        <div class="exercise-info">
-                            <span class="ex-name">⚡ RDL</span>
-                            <div class="ex-meta"><span>Cible : 3×8-10</span><span class="prev-weight" id="prev-b1-s1-ex4">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s1-ex4-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s1-ex5">
-                        <div class="exercise-info">
-                            <span class="ex-name">🔩 Ab wheel</span>
-                            <div class="ex-meta"><span>Cible : 3×8-12</span><span class="prev-weight" id="prev-b1-s1-ex5">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s1-ex5-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Affichage dynamique de la séance active -->
+    <div id="active-session-container"></div>
 
-                <div class="workout-group">
-                    <div class="workout-title">🗓️ Séance 2</div>
-                    <div class="exercise" data-id="b1-s2-ex1">
-                        <div class="exercise-info">
-                            <span class="ex-name">💪 Développé militaire</span>
-                            <div class="ex-meta"><span>Cible : 4×6-8</span><span class="prev-weight" id="prev-b1-s2-ex1">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s2-ex1-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s2-ex2">
-                        <div class="exercise-info">
-                            <span class="ex-name">🛶 Tractions / tirage</span>
-                            <div class="ex-meta"><span>Cible : 4×8-10</span><span class="prev-weight" id="prev-b1-s2-ex2">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s2-ex2-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s2-ex3">
-                        <div class="exercise-info">
-                            <span class="ex-name">🍑 Fente bulgare</span>
-                            <div class="ex-meta"><span>Cible : 3×8-10</span><span class="prev-weight" id="prev-b1-s2-ex3">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s2-ex3-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s2-ex4">
-                        <div class="exercise-info">
-                            <span class="ex-name">🍑 Hip thrust</span>
-                            <div class="ex-meta"><span>Cible : 3×10-12</span><span class="prev-weight" id="prev-b1-s2-ex4">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s2-ex4-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s2-ex5">
-                        <div class="exercise-info">
-                            <span class="ex-name">🎒 Farmer walk</span>
-                            <div class="ex-meta"><span>Cible : 3×30-40m</span><span class="prev-weight" id="prev-b1-s2-ex5">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s2-ex5-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="workout-group">
-                    <div class="workout-title">🗓️ Séance 3</div>
-                    <div class="exercise" data-id="b1-s3-ex1">
-                        <div class="exercise-info">
-                            <span class="ex-name">🦵 Front squat</span>
-                            <div class="ex-meta"><span>Cible : 3×8</span><span class="prev-weight" id="prev-b1-s3-ex1">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s3-ex1-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s3-ex2">
-                        <div class="exercise-info">
-                            <span class="ex-name">💪 Développé incliné haltères</span>
-                            <div class="ex-meta"><span>Cible : 3×8-12</span><span class="prev-weight" id="prev-b1-s3-ex2">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s3-ex2-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s3-ex3">
-                        <div class="exercise-info">
-                            <span class="ex-name">🔥 Hang power clean</span>
-                            <div class="ex-meta"><span>Cible : 5×3</span><span class="prev-weight" id="prev-b1-s3-ex3">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s3-ex3-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s3-ex4">
-                        <div class="exercise-info">
-                            <span class="ex-name">🛶 Rowing unilatéral</span>
-                            <div class="ex-meta"><span>Cible : 3×10/c</span><span class="prev-weight" id="prev-b1-s3-ex4">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s3-ex4-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                    <div class="exercise" data-id="b1-s3-ex5">
-                        <div class="exercise-info">
-                            <span class="ex-name">🔩 Gainage latéral</span>
-                            <div class="ex-meta"><span>Cible : 3×40-60s</span><span class="prev-weight" id="prev-b1-s3-ex5">Dernier : -</span></div>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" class="weight-input" placeholder="kg" oninput="saveData()" data-id="b1-s3-ex5-w">
-                            <span class="unit">kg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardio-note">🏃‍♂️ Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j</div>
-
-                <div class="weeks-tracker">
-                    <div class="week-btn" data-week="b1-w1"><div>14/09</div>S1<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div></div></div>
-                    <div class="week-btn" data-week="b1-w2"><div>21/09</div>S2<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div></div></div>
-                    <div class="week-btn" data-week="b1-w3"><div>28/09</div>S3<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div></div></div>
-                    <div class="week-btn" data-week="b1-w4"><div>05/10</div>S4 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div><div class="w-dot" onclick="toggleDot(event, this)"></div></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- Modal Chrono -->
@@ -579,99 +304,142 @@
 </div>
 
 <script>
+    // Programme complet structuré par semaines et séances (Exemple Bloc 1 et suite)
+    const programData = [
+        // S1
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 1", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
+            { name: "Back squat", target: "4×8-10" },
+            { name: "Développé couché", target: "4×8-10" },
+            { name: "Rowing barre", target: "3×10-12" },
+            { name: "RDL", target: "3×8-10" },
+            { name: "Ab wheel", target: "3×8-12" }
+        ]},
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 2", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
+            { name: "Développé militaire", target: "4×6-8" },
+            { name: "Tractions / tirage", target: "4×8-10" },
+            { name: "Fente bulgare", target: "3×8-10" },
+            { name: "Hip thrust", target: "3×10-12" },
+            { name: "Farmer walk", target: "3×30-40m" }
+        ]},
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 3", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
+            { name: "Front squat", target: "3×8" },
+            { name: "Développé incliné haltères", target: "3×8-12" },
+            { name: "Hang power clean", target: "5×3" },
+            { name: "Rowing unilatéral", target: "3×10/c" },
+            { name: "Gainage latéral", target: "3×40-60s" }
+        ]},
+        // S2
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 1", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
+            { name: "Back squat", target: "4×8-10" },
+            { name: "Développé couché", target: "4×8-10" },
+            { name: "Rowing barre", target: "3×10-12" },
+            { name: "RDL", target: "3×8-10" },
+            { name: "Ab wheel", target: "3×8-12" }
+        ]},
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 2", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
+            { name: "Développé militaire", target: "4×6-8" },
+            { name: "Tractions / tirage", target: "4×8-10" },
+            { name: "Fente bulgare", target: "3×8-10" },
+            { name: "Hip thrust", target: "3×10-12" },
+            { name: "Farmer walk", target: "3×30-40m" }
+        ]},
+        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 3", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
+            { name: "Front squat", target: "3×8" },
+            { name: "Développé incliné haltères", target: "3×8-12" },
+            { name: "Hang power clean", target: "5×3" },
+            { name: "Rowing unilatéral", target: "3×10/c" },
+            { name: "Gainage latéral", target: "3×40-60s" }
+        ]}
+        // (Le tableau peut s'étendre sur toute l'année de la même manière)
+    ];
+
     let timerInterval = null;
 
     document.addEventListener("DOMContentLoaded", () => {
-        loadData();
+        renderActiveSession();
     });
 
-    function saveData() {
-        const state = { weights: {}, weeks: {} };
-        
-        // Sauvegarde des poids
-        document.querySelectorAll('.weight-input').forEach(input => {
-            const id = input.getAttribute('data-id');
-            if (input.value) {
-                state.weights[id] = input.value;
-                input.closest('.exercise').classList.add('done-ex');
-            } else {
-                input.closest('.exercise').classList.remove('done-ex');
-            }
-        });
-
-        // Sauvegarde des points de semaine
-        document.querySelectorAll('.week-btn').forEach(weekBtn => {
-            const weekKey = weekBtn.getAttribute('data-week');
-            const dots = weekBtn.querySelectorAll('.w-dot');
-            state.weeks[weekKey] = Array.from(dots).map(d => d.classList.contains('done'));
-        });
-
-        localStorage.setItem('quete_fonte_v2', JSON.stringify(state));
-        updateStats();
+    function getState() {
+        return JSON.parse(localStorage.getItem('quete_fonte_focus')) || { currentSessionIndex: 0, historyWeights: {}, totalTonnage: 0 };
     }
 
-    function loadData() {
-        const saved = JSON.parse(localStorage.getItem('quete_fonte_v2')) || {};
+    function saveState(state) {
+        localStorage.setItem('quete_fonte_focus', JSON.stringify(state));
+    }
+
+    function renderActiveSession() {
+        const state = getState();
+        const container = document.getElementById('active-session-container');
         
-        if (saved.weights) {
-            for (const [id, val] of Object.entries(saved.weights)) {
-                const input = document.querySelector(`[data-id="${id}"]`);
-                if (input) {
-                    input.value = val;
-                    input.closest('.exercise').classList.add('done-ex');
-                    
-                    // Afficher la valeur dans le champ "Dernier" de l'exercice équivalent
-                    const baseId = id.replace('-w', '');
-                    const prevLabel = document.getElementById(`prev-${baseId}`);
-                    if (prevLabel) prevLabel.innerText = `Dernier : ${val} kg`;
-                }
-            }
+        // Mettre à jour le tonnage total
+        document.getElementById('total-tonnage').innerHTML = `${Math.round(state.totalTonnage)} kg<br><span style="font-size:10px; opacity:0.8;">Tonnage total</span>`;
+
+        if (state.currentSessionIndex >= programData.length) {
+            container.innerHTML = `<div class="session-card" style="text-align:center; padding:30px;"><h3>🎉 Félicitations !</h3><p>Vous êtes arrivé au bout de toutes les séances programmées !</p></div>`;
+            return;
         }
 
-        if (saved.weeks) {
-            for (const [weekKey, dotsState] of Object.entries(saved.weeks)) {
-                const weekContainer = document.querySelector(`[data-week="${weekKey}"]`);
-                if (weekContainer) {
-                    const dots = weekContainer.querySelectorAll('.w-dot');
-                    dotsState.forEach((state, index) => {
-                        if (state && dots[index]) dots[index].classList.add('done');
-                    });
-                }
-            }
-        }
-        updateStats();
+        const session = programData[state.currentSessionIndex];
+
+        let html = `
+            <div class="session-card">
+                <div class="session-header">
+                    <div class="session-title">
+                        <h3>${session.block}</h3>
+                        <p>${session.week} · <strong>${session.sessionNum}</strong></p>
+                    </div>
+                    <div class="session-progress">${state.currentSessionIndex + 1} / ${programData.length}</div>
+                </div>
+        `;
+
+        session.exercises.forEach((ex, idx) => {
+            const lastWeight = state.historyWeights[ex.name] ? `${state.historyWeights[ex.name]} kg` : '-';
+            html += `
+                <div class="exercise">
+                    <div class="exercise-info">
+                        <span class="ex-name">${ex.name}</span>
+                        <div class="ex-meta">
+                            <span>Cible : ${ex.target}</span>
+                            <span class="prev-weight">Dernier : ${lastWeight}</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" class="weight-input" placeholder="kg" id="input-${idx}">
+                        <span class="unit">kg</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `
+                <div class="cardio-note">🏃‍♂️ ${session.cardio}</div>
+                <button class="action-btn" onclick="completeSession()">Valider & Séance suivante ➔</button>
+            </div>
+        `;
+
+        container.innerHTML = html;
     }
 
-    function updateStats() {
-        let totalTonnage = 0;
-        let validatedSessions = 0;
+    function completeSession() {
+        const state = getState();
+        const session = programData[state.currentSessionIndex];
+        let sessionTonnage = 0;
 
-        document.querySelectorAll('.weight-input').forEach(input => {
-            if (input.value) {
-                totalTonnage += parseFloat(input.value) * 30; // Estimation simple du volume
+        session.exercises.forEach((ex, idx) => {
+            const input = document.getElementById(`input-${idx}`);
+            const val = parseFloat(input.value);
+            if (!isNaN(val) && val > 0) {
+                state.historyWeights[ex.name] = val; // Enregistre le poids pour ce nom d'exercice
+                sessionTonnage += val * 30; // Estimation du volume de la séance
             }
         });
 
-        document.querySelectorAll('.w-dot').forEach(dot => {
-            if (dot.classList.contains('done')) validatedSessions++;
-        });
-
-        document.getElementById('total-tonnage').innerHTML = `${Math.round(totalTonnage)} kg<br><span style="font-size:10px; opacity:0.8;">Tonnage estimé</span>`;
-        document.getElementById('stat-sessions').innerText = `✅ Séances validées : ${validatedSessions}/138`;
-    }
-
-    function toggleBlock(event, header) {
-        event.stopPropagation();
-        const card = header.parentElement;
-        const icon = header.querySelector('.block-icon');
-        card.classList.toggle('active');
-        icon.innerHTML = card.classList.contains('active') ? '🎯 ▾' : '🎯 ▸';
-    }
-
-    function toggleDot(event, dot) {
-        event.stopPropagation();
-        dot.classList.toggle('done');
-        saveData();
+        state.totalTonnage += sessionTonnage;
+        state.currentSessionIndex++; // Passe à la séance suivante
+        
+        saveState(state);
+        renderActiveSession();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Gestion du Chrono
@@ -694,10 +462,10 @@
         }, 1000);
     }
 
-    function updateTimerDisplay(seconds, displayElement) {
+    function updateTimerDisplay(seconds, display) {
         const m = Math.floor(seconds / 60).toString().padStart(2, '0');
         const s = (seconds % 60).toString().padStart(2, '0');
-        displayElement.innerText = `${m}:${s}`;
+        display.innerText = `${m}:${s}`;
     }
 
     function stopTimer() {
