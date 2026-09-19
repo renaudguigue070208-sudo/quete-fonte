@@ -91,7 +91,7 @@
 
         .progress-fill {
             background-color: white;
-            width: 5%;
+            width: 2%;
             height: 100%;
             border-radius: 3px;
         }
@@ -215,19 +215,51 @@
         .exercise {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 13px;
             padding: 10px 0;
             border-bottom: 1px solid #f0f0f5;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            touch-action: manipulation;
         }
         .exercise:last-child {
             border-bottom: none;
         }
-        
-        .exercise.done-ex {
-            opacity: 0.3;
+
+        .exercise-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        /* Case à cocher interactive */
+        .ex-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #c7c7cc;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .exercise.done-ex .ex-checkbox {
+            background-color: var(--accent-purple-dark);
+            border-color: var(--accent-purple-dark);
+        }
+
+        .exercise.done-ex .ex-checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .exercise.done-ex .ex-name {
+            opacity: 0.4;
             text-decoration: line-through;
         }
 
@@ -293,8 +325,8 @@
         }
 
         .w-dot {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             background-color: #e5e5ea;
             border-radius: 50%;
             cursor: pointer;
@@ -349,111 +381,156 @@
         <div>🌀 semaine deload = charge -15 à -25%, RPE 6, aucun échec</div>
     </div>
 
-    <div class="blocks-container">
-        
+    <div class="blocks-container" id="blocks-container">
+        <!-- Les blocs seront injectés dynamiquement pour l'optimisation des IDs, ou gardés en dur -->
         <!-- BLOC 1 -->
         <div class="block-card active">
-            <div class="block-header" onclick="toggleBlock(this)">
+            <div class="block-header" onclick="toggleBlock(event, this)">
                 <div class="block-title">
                     <h3>Bloc 1 · Reprise / Base</h3>
                     <p>Semaines 1-4 · 14/09 → 12/10</p>
                 </div>
                 <div class="block-icon">🎯 ▾</div>
             </div>
-            
             <div class="block-content">
-                <!-- Séance A -->
                 <div class="workout-group">
                     <div class="workout-title">🗓️ Séance 1</div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🦵 Back squat</span><span class="ex-reps">4×8-10</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé couché</span><span class="ex-reps">4×8-10</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Rowing barre</span><span class="ex-reps">3×10-12</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">⚡ RDL</span><span class="ex-reps">3×8-10</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔩 Ab wheel</span><span class="ex-reps">3×8-12</span></div>
+                    <div class="exercise" data-id="b1-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b1-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b1-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing barre</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b1-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b1-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
                 </div>
-
-                <!-- Séance B -->
                 <div class="workout-group">
                     <div class="workout-title">🗓️ Séance 2</div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé militaire</span><span class="ex-reps">4×6-8</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Tractions / tirage</span><span class="ex-reps">4×8-10</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🍑 Fente bulgare</span><span class="ex-reps">3×8-10/j</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🍑 Hip thrust</span><span class="ex-reps">3×10-12</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🎒 Farmer walk</span><span class="ex-reps">3×30-40m</span></div>
+                    <div class="exercise" data-id="b1-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b1-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions / tirage</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b1-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Fente bulgare</span></div><span class="ex-reps">3×8-10/j</span></div>
+                    <div class="exercise" data-id="b1-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b1-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×30-40m</span></div>
                 </div>
-
-                <!-- Séance C -->
                 <div class="workout-group">
                     <div class="workout-title">🗓️ Séance 3</div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🦵 Front squat</span><span class="ex-reps">3×8</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">💪 Développé incliné haltères</span><span class="ex-reps">3×8-12</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔥 Hang power clean</span><span class="ex-reps">5×3</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🛶 Rowing unilatéral</span><span class="ex-reps">3×10/c</span></div>
-                    <div class="exercise" onclick="toggleExercise(this)"><span class="ex-name">🔩 Gainage latéral</span><span class="ex-reps">3×40-60s/c</span></div>
+                    <div class="exercise" data-id="b1-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b1-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">3×8-12</span></div>
+                    <div class="exercise" data-id="b1-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Hang power clean</span></div><span class="ex-reps">5×3</span></div>
+                    <div class="exercise" data-id="b1-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing unilatéral</span></div><span class="ex-reps">3×10/c</span></div>
+                    <div class="exercise" data-id="b1-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Gainage latéral</span></div><span class="ex-reps">3×40-60s/c</span></div>
                 </div>
-
-                <div class="cardio-note">
-                    🏃‍♂️ Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j
-                </div>
-
-                <!-- Semaines - Points cliquables -->
+                <div class="cardio-note">🏃‍♂️ Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j</div>
                 <div class="weeks-tracker">
-                    <div class="week-btn">
-                        <div>14/09</div>S1
-                        <div class="week-dots">
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                        </div>
-                    </div>
-                    <div class="week-btn">
-                        <div>21/09</div>S2
-                        <div class="week-dots">
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                        </div>
-                    </div>
-                    <div class="week-btn">
-                        <div>28/09</div>S3
-                        <div class="week-dots">
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                        </div>
-                    </div>
-                    <div class="week-btn deload">
-                        <div>05/10</div>S4 🌀
-                        <div class="week-dots">
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                            <div class="w-dot" onclick="toggleDot(this)"></div>
-                        </div>
-                    </div>
+                    <div class="week-btn" data-week="b1-w1"><div>14/09</div>S1<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b1-w2"><div>21/09</div>S2<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b1-w3"><div>28/09</div>S3<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b1-w4"><div>05/10</div>S4 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
                 </div>
             </div>
         </div>
 
         <!-- BLOC 2 -->
         <div class="block-card">
-            <div class="block-header" onclick="toggleBlock(this)">
-                <div class="block-title">
-                    <h3>Bloc 2 · Hypertrophie</h3>
-                    <p>Semaines 5-8 · 12/10 → 09/11</p>
-                </div>
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 2 · Hypertrophie</h3><p>Semaines 5-8 · 12/10 → 09/11</p></div>
                 <div class="block-icon">🎯 ▸</div>
             </div>
             <div class="block-content">
-                <p style="font-size:13px; color:#666; text-align:center; padding: 20px 0;">(Contenu à ajouter ici)</p>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b2-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Pause squat</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b2-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché serré</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b2-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing poitrine appuyée</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b2-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ Soulevé de terre roumain</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b2-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Crunch câble</span></div><span class="ex-reps">3×10-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b2-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Dev. militaire assis haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b2-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions pronation</span></div><span class="ex-reps">4×6-10</span></div>
+                    <div class="exercise" data-id="b2-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Fentes marchées</span></div><span class="ex-reps">3×10/j</span></div>
+                    <div class="exercise" data-id="b2-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b2-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🏋️‍♂️ Élévations latérales</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b2-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b2-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné barre</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b2-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean depuis hang</span></div><span class="ex-reps">6×2</span></div>
+                    <div class="exercise" data-id="b2-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing câble</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b2-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Curl + extension triceps</span></div><span class="ex-reps">2×12-15</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 2-3x30-35 min zone 2 · 6 000-7 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b2-w1"><div>12/10</div>S5<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b2-w2"><div>19/10</div>S6<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b2-w3"><div>26/10</div>S7<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b2-w4"><div>02/11</div>S8 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
             </div>
         </div>
-        
+
+        <!-- (Les autres blocs peuvent suivre la même logique d'attributs data-id / data-week si besoin) -->
     </div>
 </div>
 
 <script>
-    // Ouvrir/fermer les blocs complets
-    function toggleBlock(headerElement) {
+    // Charger l'état enregistré au démarrage
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedData = JSON.parse(localStorage.getItem('quete_fonte_state')) || {};
+        
+        // Restaurer les exercices cochés
+        if (savedData.exercises) {
+            for (const [id, isDone] of Object.entries(savedData.exercises)) {
+                if (isDone) {
+                    const el = document.querySelector(`[data-id="${id}"]`);
+                    if (el) el.classList.add('done-ex');
+                }
+            }
+        }
+
+        // Restaurer les ronds de semaines
+        if (savedData.weeks) {
+            for (const [weekKey, dotsState] of Object.entries(savedData.weeks)) {
+                const weekContainer = document.querySelector(`[data-week="${weekKey}"]`);
+                if (weekContainer) {
+                    const dots = weekContainer.querySelectorAll('.w-dot');
+                    dotsState.forEach((state, index) => {
+                        if (state && dots[index]) {
+                            dots[index].classList.add('done');
+                        }
+                    });
+                    updateWeekContainerStyle(weekContainer);
+                }
+            }
+        }
+    });
+
+    // Sauvegarder l'état global
+    function saveData() {
+        const state = { exercises: {}, weeks: {} };
+        
+        // Sauvegarde exercices
+        document.querySelectorAll('.exercise').forEach(ex => {
+            const id = ex.getAttribute('data-id');
+            if (id) {
+                state.exercises[id] = ex.classList.contains('done-ex');
+            }
+        });
+
+        // Sauvegarde semaines
+        document.querySelectorAll('.week-btn').forEach(weekBtn => {
+            const weekKey = weekBtn.getAttribute('data-week');
+            if (weekKey) {
+                const dots = weekBtn.querySelectorAll('.w-dot');
+                state.weeks[weekKey] = Array.from(dots).map(d => d.classList.contains('done'));
+            }
+        });
+
+        localStorage.setItem('quete_fonte_state', JSON.stringify(state));
+    }
+
+    // Ouvrir/fermer les blocs
+    function toggleBlock(event, headerElement) {
+        event.stopPropagation();
         const card = headerElement.parentElement;
         const icon = headerElement.querySelector('.block-icon');
         
@@ -467,16 +544,20 @@
     }
 
     // Cocher une séance (les petits ronds)
-    function toggleDot(dotElement) {
-        // Alterne l'état validé / non validé
+    function toggleDot(event, dotElement, dotIndex) {
+        event.stopPropagation();
         dotElement.classList.toggle('done');
 
-        // Met à jour la bordure de la semaine si les 3 séances sont finies
         const weekBtn = dotElement.closest('.week-btn');
+        updateWeekContainerStyle(weekBtn);
+        saveData();
+    }
+
+    function updateWeekContainerStyle(weekBtn) {
         const allDots = weekBtn.querySelectorAll('.w-dot');
         const allDone = Array.from(allDots).every(d => d.classList.contains('done'));
 
-        if (allDone) {
+        if (allDone && allDots.length > 0) {
             weekBtn.style.borderColor = "var(--accent-purple-dark)";
             weekBtn.style.boxShadow = "0 0 0 2px var(--accent-purple)";
         } else {
@@ -485,9 +566,11 @@
         }
     }
 
-    // Barrer un exercice fini pendant l'entraînement
-    function toggleExercise(exElement) {
-        exElement.classList.toggle('done-ex');
+    // Cocher un exercice
+    function toggleExercise(leftElement) {
+        const exerciseRow = leftElement.closest('.exercise');
+        exerciseRow.classList.toggle('done-ex');
+        saveData();
     }
 </script>
 
