@@ -381,8 +381,8 @@
         <div>🌀 semaine deload = charge -15 à -25%, RPE 6, aucun échec</div>
     </div>
 
-    <div class="blocks-container" id="blocks-container">
-        <!-- Les blocs seront injectés dynamiquement pour l'optimisation des IDs, ou gardés en dur -->
+    <div class="blocks-container">
+        
         <!-- BLOC 1 -->
         <div class="block-card active">
             <div class="block-header" onclick="toggleBlock(event, this)">
@@ -468,7 +468,414 @@
             </div>
         </div>
 
-        <!-- (Les autres blocs peuvent suivre la même logique d'attributs data-id / data-week si besoin) -->
+        <!-- BLOC 3 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 3 · Force technique</h3><p>Semaines 9-12 · 09/11 → 07/12</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b3-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">5×5</span></div>
+                    <div class="exercise" data-id="b3-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché pause</span></div><span class="ex-reps">5×5</span></div>
+                    <div class="exercise" data-id="b3-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Pendlay row</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b3-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ Good morning léger</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b3-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b3-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Push press contrôlé</span></div><span class="ex-reps">5×4-6</span></div>
+                    <div class="exercise" data-id="b3-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions lestées / tirage</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b3-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×5</span></div>
+                    <div class="exercise" data-id="b3-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ SDT jambes tendues</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b3-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×40m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b3-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift</span></div><span class="ex-reps">4×4</span></div>
+                    <div class="exercise" data-id="b3-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b3-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean</span></div><span class="ex-reps">6×2</span></div>
+                    <div class="exercise" data-id="b3-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing unilatéral</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b3-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Pallof press</span></div><span class="ex-reps">3×10/côté</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x35-45 min zone 2 · 6 000-7 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b3-w1"><div>09/11</div>S9<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b3-w2"><div>16/11</div>S10<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b3-w3"><div>23/11</div>S11<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b3-w4"><div>30/11</div>S12 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 4 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 4 · Recomposition</h3><p>Semaines 13-16 · 07/12 → 04/01</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b4-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Zercher / safety-bar squat</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b4-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b4-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing haltères</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b4-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL haltères</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b4-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Reverse crunch</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b4-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire barre</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b4-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tirage horizontal câble</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b4-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Step-up</span></div><span class="ex-reps">3×8-10/j</span></div>
+                    <div class="exercise" data-id="b4-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b4-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🏋️‍♂️ Oiseau haltères</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b4-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat pause</span></div><span class="ex-reps">4×5-7</span></div>
+                    <div class="exercise" data-id="b4-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Dev. incliné prise neutre</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b4-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Hang high pull technique</span></div><span class="ex-reps">5×3</span></div>
+                    <div class="exercise" data-id="b4-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions supination</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b4-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x35-45 min zone 2 · 7 000-8 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b4-w1"><div>07/12</div>S13<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b4-w2"><div>14/12</div>S14<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b4-w3"><div>21/12</div>S15<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b4-w4"><div>28/12</div>S16 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 5 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 5 · Densité</h3><p>Semaines 17-20 · 04/01 → 01/02</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b5-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat tempo 3-0-1</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b5-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché tempo</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b5-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Seal row / poitrine appuyée</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b5-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b5-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Suitcase carry</span></div><span class="ex-reps">3×30m/côté</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b5-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Push press</span></div><span class="ex-reps">4×5-6</span></div>
+                    <div class="exercise" data-id="b5-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions</span></div><span class="ex-reps">4×6-10</span></div>
+                    <div class="exercise" data-id="b5-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Split squat</span></div><span class="ex-reps">3×8-10/j</span></div>
+                    <div class="exercise" data-id="b5-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Kettlebell swing</span></div><span class="ex-reps">3×12-15</span></div>
+                    <div class="exercise" data-id="b5-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🏋️‍♂️ Élévations latérales</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b5-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift blocs / rack pull</span></div><span class="ex-reps">4×4-6</span></div>
+                    <div class="exercise" data-id="b5-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné barre</span></div><span class="ex-reps">4×6-10</span></div>
+                    <div class="exercise" data-id="b5-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean</span></div><span class="ex-reps">5×2</span></div>
+                    <div class="exercise" data-id="b5-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing câble serré</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b5-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Crunch câble</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x35-45 min zone 2 · 7 000-8 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b5-w1"><div>04/01</div>S17<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b5-w2"><div>11/01</div>S18<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b5-w3"><div>18/01</div>S19<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b5-w4"><div>25/01</div>S20 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 6 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 6 · Force</h3><p>Semaines 21-24 · 01/02 → 01/03</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b6-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">5×4-6</span></div>
+                    <div class="exercise" data-id="b6-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché</span></div><span class="ex-reps">5×4-6</span></div>
+                    <div class="exercise" data-id="b6-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing barre</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b6-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b6-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b6-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire</span></div><span class="ex-reps">5×4-6</span></div>
+                    <div class="exercise" data-id="b6-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions lestées / tirage</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b6-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×5-6</span></div>
+                    <div class="exercise" data-id="b6-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b6-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×30-40m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b6-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift</span></div><span class="ex-reps">4×3-5</span></div>
+                    <div class="exercise" data-id="b6-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b6-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Hang power clean</span></div><span class="ex-reps">6×2</span></div>
+                    <div class="exercise" data-id="b6-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing unilatéral</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b6-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Gainage</span></div><span class="ex-reps">3×45-60s</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x35-45 min zone 2 · 7 000-8 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b6-w1"><div>01/02</div>S21<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b6-w2"><div>08/02</div>S22<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b6-w3"><div>15/02</div>S23<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b6-w4"><div>22/02</div>S24 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 7 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 7 · Hypertrophie</h3><p>Semaines 25-28 · 01/03 → 29/03</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b7-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b7-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché prise moyenne</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b7-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing haltère</span></div><span class="ex-reps">4×10-12</span></div>
+                    <div class="exercise" data-id="b7-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ Leg curl</span></div><span class="ex-reps">3×10-15</span></div>
+                    <div class="exercise" data-id="b7-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Crunch câble</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b7-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire haltères</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b7-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tirage vertical prise neutre</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b7-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Bulgarian split squat</span></div><span class="ex-reps">3×10/j</span></div>
+                    <div class="exercise" data-id="b7-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b7-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Curl incliné + triceps corde</span></div><span class="ex-reps">2×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b7-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Hack squat ou goblet lourd</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b7-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b7-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean technique</span></div><span class="ex-reps">5×3</span></div>
+                    <div class="exercise" data-id="b7-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing poitrine appuyée</span></div><span class="ex-reps">3×10-12</span></div>
+                    <div class="exercise" data-id="b7-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🏋️‍♂️ Oiseau + élévations latérales</span></div><span class="ex-reps">2×12-15</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x35-45 min zone 2 · 7 000-8 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b7-w1"><div>01/03</div>S25<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b7-w2"><div>08/03</div>S26<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b7-w3"><div>15/03</div>S27<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b7-w4"><div>22/03</div>S28 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 8 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 8 · Puissance + force</h3><p>Semaines 29-32 · 29/03 → 26/04</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b8-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">5×5</span></div>
+                    <div class="exercise" data-id="b8-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché pause</span></div><span class="ex-reps">5×5</span></div>
+                    <div class="exercise" data-id="b8-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Pendlay row</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b8-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b8-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b8-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Push press</span></div><span class="ex-reps">5×4</span></div>
+                    <div class="exercise" data-id="b8-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions lestées</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b8-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×5</span></div>
+                    <div class="exercise" data-id="b8-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b8-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×40m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b8-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean</span></div><span class="ex-reps">6×2</span></div>
+                    <div class="exercise" data-id="b8-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné barre</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b8-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift technique</span></div><span class="ex-reps">3×4</span></div>
+                    <div class="exercise" data-id="b8-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing câble</span></div><span class="ex-reps">3×8-12</span></div>
+                    <div class="exercise" data-id="b8-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Pallof press</span></div><span class="ex-reps">3×10/côté</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x40-45 min zone 2 · 8 000-10 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b8-w1"><div>29/03</div>S29<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b8-w2"><div>05/04</div>S30<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b8-w3"><div>12/04</div>S31<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b8-w4"><div>19/04</div>S32 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 9 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 9 · Recomposition</h3><p>Semaines 33-36 · 26/04 → 24/05</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b9-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Pause squat</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b9-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b9-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing poitrine appuyée</span></div><span class="ex-reps">4×8-12</span></div>
+                    <div class="exercise" data-id="b9-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL haltères</span></div><span class="ex-reps">3×10</span></div>
+                    <div class="exercise" data-id="b9-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Reverse crunch</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b9-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire barre</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b9-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions pronation</span></div><span class="ex-reps">4×6-10</span></div>
+                    <div class="exercise" data-id="b9-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Fentes marchées</span></div><span class="ex-reps">3×10/j</span></div>
+                    <div class="exercise" data-id="b9-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×10</span></div>
+                    <div class="exercise" data-id="b9-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🏋️‍♂️ Élévations latérales</span></div><span class="ex-reps">3×15</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b9-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">4×6</span></div>
+                    <div class="exercise" data-id="b9-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b9-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Hang power clean</span></div><span class="ex-reps">5×3</span></div>
+                    <div class="exercise" data-id="b9-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing unilatéral</span></div><span class="ex-reps">3×10/côté</span></div>
+                    <div class="exercise" data-id="b9-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×10</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x40-45 min zone 2 · 8 000-10 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b9-w1"><div>26/04</div>S33<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b9-w2"><div>03/05</div>S34<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b9-w3"><div>10/05</div>S35<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b9-w4"><div>17/05</div>S36 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 10 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 10 · Consolidation</h3><p>Semaines 37-40 · 24/05 → 21/06</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b10-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">4×5-6</span></div>
+                    <div class="exercise" data-id="b10-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché</span></div><span class="ex-reps">4×5-6</span></div>
+                    <div class="exercise" data-id="b10-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing barre</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b10-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b10-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Gainage</span></div><span class="ex-reps">3×60s</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b10-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire</span></div><span class="ex-reps">4×5-6</span></div>
+                    <div class="exercise" data-id="b10-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tirage vertical lourd</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b10-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Split squat</span></div><span class="ex-reps">3×8/j</span></div>
+                    <div class="exercise" data-id="b10-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b10-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×40m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b10-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift</span></div><span class="ex-reps">4×3-5</span></div>
+                    <div class="exercise" data-id="b10-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné</span></div><span class="ex-reps">4×6-8</span></div>
+                    <div class="exercise" data-id="b10-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean</span></div><span class="ex-reps">5×2</span></div>
+                    <div class="exercise" data-id="b10-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing câble</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b10-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Crunch câble</span></div><span class="ex-reps">3×12-15</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x40-45 min zone 2 · 8 000-10 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b10-w1"><div>24/05</div>S37<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b10-w2"><div>31/05</div>S38<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b10-w3"><div>07/06</div>S39<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b10-w4"><div>14/06</div>S40 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 11 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 11 · Finalisation</h3><p>Semaines 41-44 · 21/06 → 19/07</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b11-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b11-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché pause</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b11-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b11-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b11-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×8-12</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b11-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire</span></div><span class="ex-reps">4×5-8</span></div>
+                    <div class="exercise" data-id="b11-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions / tirage</span></div><span class="ex-reps">4×6-10</span></div>
+                    <div class="exercise" data-id="b11-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">3×6-8</span></div>
+                    <div class="exercise" data-id="b11-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b11-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">3×30m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b11-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Power clean technique</span></div><span class="ex-reps">5×2</span></div>
+                    <div class="exercise" data-id="b11-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">4×8-10</span></div>
+                    <div class="exercise" data-id="b11-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Deadlift léger</span></div><span class="ex-reps">3×4-6</span></div>
+                    <div class="exercise" data-id="b11-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing unilatéral</span></div><span class="ex-reps">3×10</span></div>
+                    <div class="exercise" data-id="b11-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Gainage latéral</span></div><span class="ex-reps">3×45s/côté</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x40-45 min zone 2 · 8 000-10 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b11-w1"><div>21/06</div>S41<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b11-w2"><div>28/06</div>S42<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b11-w3"><div>05/07</div>S43<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn deload" data-week="b11-w4"><div>12/07</div>S44 🌀<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOC 12 -->
+        <div class="block-card">
+            <div class="block-header" onclick="toggleBlock(event, this)">
+                <div class="block-title"><h3>Bloc 12 · Juillet : consolidation</h3><p>Semaines 45-46 · 19/07 → 01/08</p></div>
+                <div class="block-icon">🎯 ▸</div>
+            </div>
+            <div class="block-content">
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 1</div>
+                    <div class="exercise" data-id="b12-s1-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Back squat</span></div><span class="ex-reps">3×5-6</span></div>
+                    <div class="exercise" data-id="b12-s1-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé couché</span></div><span class="ex-reps">3×5-6</span></div>
+                    <div class="exercise" data-id="b12-s1-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing barre</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b12-s1-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">⚡ RDL</span></div><span class="ex-reps">2×8</span></div>
+                    <div class="exercise" data-id="b12-s1-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Ab wheel</span></div><span class="ex-reps">3×10</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 2</div>
+                    <div class="exercise" data-id="b12-s2-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé militaire</span></div><span class="ex-reps">3×5-6</span></div>
+                    <div class="exercise" data-id="b12-s2-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Tractions / tirage</span></div><span class="ex-reps">3×8</span></div>
+                    <div class="exercise" data-id="b12-s2-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Fente bulgare</span></div><span class="ex-reps">2×8/j</span></div>
+                    <div class="exercise" data-id="b12-s2-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🍑 Hip thrust</span></div><span class="ex-reps">2×8-10</span></div>
+                    <div class="exercise" data-id="b12-s2-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🎒 Farmer walk</span></div><span class="ex-reps">2×40m</span></div>
+                </div>
+                <div class="workout-group">
+                    <div class="workout-title">🗓️ Séance 3</div>
+                    <div class="exercise" data-id="b12-s3-ex1"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🦵 Front squat</span></div><span class="ex-reps">3×6</span></div>
+                    <div class="exercise" data-id="b12-s3-ex2"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">💪 Développé incliné haltères</span></div><span class="ex-reps">3×8-10</span></div>
+                    <div class="exercise" data-id="b12-s3-ex3"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔥 Hang power clean</span></div><span class="ex-reps">4×2</span></div>
+                    <div class="exercise" data-id="b12-s3-ex4"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🛶 Rowing câble</span></div><span class="ex-reps">3×10</span></div>
+                    <div class="exercise" data-id="b12-s3-ex5"><div class="exercise-left" onclick="toggleExercise(this)"><div class="ex-checkbox"></div><span class="ex-name">🔩 Gainage</span></div><span class="ex-reps">3×45s</span></div>
+                </div>
+                <div class="cardio-note">🏃‍♂️ Cardio : 3x40-45 min zone 2 · 8 000-10 000 pas/j</div>
+                <div class="weeks-tracker">
+                    <div class="week-btn" data-week="b12-w1"><div>19/07</div>S45<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                    <div class="week-btn" data-week="b12-w2"><div>26/07</div>S46<div class="week-dots"><div class="w-dot" onclick="toggleDot(event, this, 0)"></div><div class="w-dot" onclick="toggleDot(event, this, 1)"></div><div class="w-dot" onclick="toggleDot(event, this, 2)"></div></div></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
