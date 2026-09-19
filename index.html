@@ -13,6 +13,7 @@
             --accent-purple: #e0d4fc;
             --accent-purple-dark: #a154f2;
             --accent-green: #34c759;
+            --accent-red: #ff3b30;
         }
 
         body {
@@ -220,24 +221,63 @@
             border-radius: 8px;
         }
 
-        /* Bouton principal de validation */
+        /* Boutons d'action */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
         .action-btn {
-            width: 100%;
+            flex: 2;
             background: var(--accent-purple-dark);
             color: white;
             border: none;
             border-radius: 14px;
-            padding: 15px;
-            font-size: 15px;
+            padding: 14px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(161, 84, 242, 0.3);
-            transition: transform 0.1s;
         }
 
-        .action-btn:active {
+        .prev-btn {
+            flex: 1;
+            background: #e5e5ea;
+            color: var(--text-main);
+            border: none;
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .action-btn:active, .prev-btn:active {
             transform: scale(0.98);
         }
+
+        /* Modal Confirmation "Sûr de toi ?" */
+        #confirm-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .confirm-box {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+        }
+        .confirm-box h3 { margin-top: 0; font-size: 18px; color: var(--text-main); }
+        .confirm-buttons { display: flex; gap: 10px; margin-top: 20px; }
+        .confirm-yes { flex: 1; background: var(--accent-purple-dark); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .confirm-no { flex: 1; background: #e5e5ea; color: var(--text-main); border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; }
 
         /* Modal Chrono */
         #timer-modal {
@@ -294,6 +334,18 @@
 
 </div>
 
+<!-- Modal Confirmation "Sûr de toi ?" -->
+<div id="confirm-modal">
+    <div class="confirm-box">
+        <h3>Sûr de toi ? 🤔</h3>
+        <p style="font-size: 13px; color: var(--text-muted);">Valider cette séance va enregistrer tes charges et passer à la suite.</p>
+        <div class="confirm-buttons">
+            <button class="confirm-no" onclick="closeConfirmModal()">Non</button>
+            <button class="confirm-yes" onclick="executeCompleteSession()">Oui, valider</button>
+        </div>
+    </div>
+</div>
+
 <!-- Modal Chrono -->
 <div id="timer-modal" onclick="closeTimerOutside(event)">
     <div class="timer-box">
@@ -304,54 +356,56 @@
 </div>
 
 <script>
-    // Programme complet structuré par semaines et séances (Exemple Bloc 1 et suite)
-    const programData = [
-        // S1
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 1", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
-            { name: "Back squat", target: "4×8-10" },
-            { name: "Développé couché", target: "4×8-10" },
-            { name: "Rowing barre", target: "3×10-12" },
-            { name: "RDL", target: "3×8-10" },
-            { name: "Ab wheel", target: "3×8-12" }
-        ]},
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 2", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
-            { name: "Développé militaire", target: "4×6-8" },
-            { name: "Tractions / tirage", target: "4×8-10" },
-            { name: "Fente bulgare", target: "3×8-10" },
-            { name: "Hip thrust", target: "3×10-12" },
-            { name: "Farmer walk", target: "3×30-40m" }
-        ]},
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 1 (14/09)", sessionNum: "Séance 3", cardio: "Cardio : 2×30-35 min zone 2 · 5 500-6 000 pas/j", exercises: [
-            { name: "Front squat", target: "3×8" },
-            { name: "Développé incliné haltères", target: "3×8-12" },
-            { name: "Hang power clean", target: "5×3" },
-            { name: "Rowing unilatéral", target: "3×10/c" },
-            { name: "Gainage latéral", target: "3×40-60s" }
-        ]},
-        // S2
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 1", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
-            { name: "Back squat", target: "4×8-10" },
-            { name: "Développé couché", target: "4×8-10" },
-            { name: "Rowing barre", target: "3×10-12" },
-            { name: "RDL", target: "3×8-10" },
-            { name: "Ab wheel", target: "3×8-12" }
-        ]},
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 2", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
-            { name: "Développé militaire", target: "4×6-8" },
-            { name: "Tractions / tirage", target: "4×8-10" },
-            { name: "Fente bulgare", target: "3×8-10" },
-            { name: "Hip thrust", target: "3×10-12" },
-            { name: "Farmer walk", target: "3×30-40m" }
-        ]},
-        { block: "Bloc 1 · Reprise / Base", week: "Semaine 2 (21/09)", sessionNum: "Séance 3", cardio: "Cardio : 2×30-35 min zone 2", exercises: [
-            { name: "Front squat", target: "3×8" },
-            { name: "Développé incliné haltères", target: "3×8-12" },
-            { name: "Hang power clean", target: "5×3" },
-            { name: "Rowing unilatéral", target: "3×10/c" },
-            { name: "Gainage latéral", target: "3×40-60s" }
-        ]}
-        // (Le tableau peut s'étendre sur toute l'année de la même manière)
+    // Génération automatique des 12 blocs de la saison (Sept 2026 -> Août 2027)
+    const blocksConfig = [
+        { name: "Bloc 1 · Reprise / Base", weeks: ["Semaine 1 (14/09)", "Semaine 2 (21/09)", "Semaine 3 (28/09)", "Semaine 4 (05/10 - Deload)"] },
+        { name: "Bloc 2 · Hypertrophie", weeks: ["Semaine 5 (12/10)", "Semaine 6 (19/10)", "Semaine 7 (26/10)", "Semaine 8 (02/11 - Deload)"] },
+        { name: "Bloc 3 · Force technique", weeks: ["Semaine 9 (09/11)", "Semaine 10 (16/11)", "Semaine 11 (23/11)", "Semaine 12 (30/11 - Deload)"] },
+        { name: "Bloc 4 · Recomposition", weeks: ["Semaine 13 (07/12)", "Semaine 14 (14/12)", "Semaine 15 (21/12)", "Semaine 16 (28/12 - Deload)"] },
+        { name: "Bloc 5 · Densité", weeks: ["Semaine 17 (04/01)", "Semaine 18 (11/01)", "Semaine 19 (18/01)", "Semaine 20 (25/01 - Deload)"] },
+        { name: "Bloc 6 · Force", weeks: ["Semaine 21 (01/02)", "Semaine 22 (08/02)", "Semaine 23 (15/02)", "Semaine 24 (22/02 - Deload)"] },
+        { name: "Bloc 7 · Hypertrophie", weeks: ["Semaine 25 (01/03)", "Semaine 26 (08/03)", "Semaine 27 (15/03)", "Semaine 28 (22/03 - Deload)"] },
+        { name: "Bloc 8 · Puissance + force", weeks: ["Semaine 29 (29/03)", "Semaine 30 (05/04)", "Semaine 31 (12/04)", "Semaine 32 (19/04 - Deload)"] },
+        { name: "Bloc 9 · Recomposition", weeks: ["Semaine 33 (26/04)", "Semaine 34 (03/05)", "Semaine 35 (10/05)", "Semaine 36 (17/05 - Deload)"] },
+        { name: "Bloc 10 · Consolidation", weeks: ["Semaine 37 (24/05)", "Semaine 38 (31/05)", "Semaine 39 (07/06)", "Semaine 40 (14/06 - Deload)"] },
+        { name: "Bloc 11 · Finalisation", weeks: ["Semaine 41 (21/06)", "Semaine 42 (28/06)", "Semaine 43 (05/07)", "Semaine 44 (12/07 - Deload)"] },
+        { name: "Bloc 12 · Consolidation estivale", weeks: ["Semaine 45 (19/07)", "Semaine 46 (26/07)"] }
     ];
+
+    // Modèles de séances types (3 par semaine)
+    const templates = {
+        seance1: [
+            { name: "Back squat", target: "4×8-10" },
+            { name: "Développé couché", target: "4×8-10" },
+            { name: "Rowing barre", target: "3×10-12" },
+            { name: "RDL", target: "3×8-10" },
+            { name: "Ab wheel", target: "3×8-12" }
+        ],
+        seance2: [
+            { name: "Développé militaire", target: "4×6-8" },
+            { name: "Tractions / tirage", target: "4×8-10" },
+            { name: "Fente bulgare", target: "3×8-10" },
+            { name: "Hip thrust", target: "3×10-12" },
+            { name: "Farmer walk", target: "3×30-40m" }
+        ],
+        seance3: [
+            { name: "Front squat", target: "3×8" },
+            { name: "Développé incliné haltères", target: "3×8-12" },
+            { name: "Hang power clean", target: "5×3" },
+            { name: "Rowing unilatéral", target: "3×10/c" },
+            { name: "Gainage latéral", target: "3×40-60s" }
+        ]
+    };
+
+    // Construction complète du programme annuel
+    let programData = [];
+    blocksConfig.forEach(block => {
+        block.weeks.forEach(week => {
+            programData.push({ block: block.name, week: week, sessionNum: "Séance 1", cardio: "Cardio : 2×30-35 min zone 2", exercises: templates.seance1 });
+            programData.push({ block: block.name, week: week, sessionNum: "Séance 2", cardio: "Cardio : 2×30-35 min zone 2", exercises: templates.seance2 });
+            programData.push({ block: block.name, week: week, sessionNum: "Séance 3", cardio: "Cardio : 2×30-35 min zone 2", exercises: templates.seance3 });
+        });
+    });
 
     let timerInterval = null;
 
@@ -360,22 +414,21 @@
     });
 
     function getState() {
-        return JSON.parse(localStorage.getItem('quete_fonte_focus')) || { currentSessionIndex: 0, historyWeights: {}, totalTonnage: 0 };
+        return JSON.parse(localStorage.getItem('quete_fonte_focus_v2')) || { currentSessionIndex: 0, historyWeights: {}, totalTonnage: 0 };
     }
 
     function saveState(state) {
-        localStorage.setItem('quete_fonte_focus', JSON.stringify(state));
+        localStorage.setItem('quete_fonte_focus_v2', JSON.stringify(state));
     }
 
     function renderActiveSession() {
         const state = getState();
         const container = document.getElementById('active-session-container');
         
-        // Mettre à jour le tonnage total
         document.getElementById('total-tonnage').innerHTML = `${Math.round(state.totalTonnage)} kg<br><span style="font-size:10px; opacity:0.8;">Tonnage total</span>`;
 
         if (state.currentSessionIndex >= programData.length) {
-            container.innerHTML = `<div class="session-card" style="text-align:center; padding:30px;"><h3>🎉 Félicitations !</h3><p>Vous êtes arrivé au bout de toutes les séances programmées !</p></div>`;
+            container.innerHTML = `<div class="session-card" style="text-align:center; padding:30px;"><h3>🎉 Félicitations !</h3><p>Vous êtes arrivé au bout de toutes les séances de l'année !</p></div>`;
             return;
         }
 
@@ -413,14 +466,27 @@
 
         html += `
                 <div class="cardio-note">🏃‍♂️ ${session.cardio}</div>
-                <button class="action-btn" onclick="completeSession()">Valider & Séance suivante ➔</button>
+                <div class="action-buttons">
+                    ${state.currentSessionIndex > 0 ? `<button class="prev-btn" onclick="prevSession()">← Précédent</button>` : ''}
+                    <button class="action-btn" onclick="openConfirmModal()">Valider & Suivante ➔</button>
+                </div>
             </div>
         `;
 
         container.innerHTML = html;
     }
 
-    function completeSession() {
+    // Modal de double validation
+    function openConfirmModal() {
+        document.getElementById('confirm-modal').style.display = 'flex';
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirm-modal').style.display = 'none';
+    }
+
+    function executeCompleteSession() {
+        closeConfirmModal();
         const state = getState();
         const session = programData[state.currentSessionIndex];
         let sessionTonnage = 0;
@@ -429,17 +495,28 @@
             const input = document.getElementById(`input-${idx}`);
             const val = parseFloat(input.value);
             if (!isNaN(val) && val > 0) {
-                state.historyWeights[ex.name] = val; // Enregistre le poids pour ce nom d'exercice
-                sessionTonnage += val * 30; // Estimation du volume de la séance
+                state.historyWeights[ex.name] = val;
+                sessionTonnage += val * 30;
             }
         });
 
         state.totalTonnage += sessionTonnage;
-        state.currentSessionIndex++; // Passe à la séance suivante
+        state.currentSessionIndex++;
         
         saveState(state);
         renderActiveSession();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Bouton Précédent
+    function prevSession() {
+        const state = getState();
+        if (state.currentSessionIndex > 0) {
+            state.currentSessionIndex--;
+            saveState(state);
+            renderActiveSession();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 
     // Gestion du Chrono
